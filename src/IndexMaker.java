@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Scanner;
 
 public class IndexMaker
@@ -51,9 +52,18 @@ public class IndexMaker
 
     // Save index:
 
-    for (IndexEntry entry : index)
-      outputFile.println(entry);
+    /*for(Map.Entry<String,Integer> entry : entryList.entrySet()) {
+    	  String key = entry.getKey();
+    	  Integer value = entry.getValue();
 
+    	  System.out.println(key + " => " + value);
+    }
+    
+    
+    for (IndexEntry entry : DocumentIndex.entryList)
+      outputFile.println(entry);
+*/
+    
     // Finish:
 
     inputFile.close();

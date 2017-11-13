@@ -3,14 +3,17 @@ import java.util.TreeSet;
 public class IndexEntry {
 	
 	private String word;
-	private TreeSet<Integer> numList=new TreeSet<Integer>();
+	private TreeSet<Integer> numList;
 	
 	public IndexEntry(String str) {
-		word = str;
+		word = str.toUpperCase();
+		numList = new TreeSet<Integer>();
 	}
 	
 	public void add(int num) {
-		numList.add(num);
+		 if(!numList.contains(num)) {
+			 numList.add(num);
+		 }
 	}
 	
 	public String getWord() {
