@@ -6,70 +6,51 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
-public class IndexMaker
-{
-  public static void main(String[] args) throws IOException
-  {
-    Scanner keyboard = new Scanner(System.in);
+public class IndexMaker{
+  
+	public static void main(String[] args) throws IOException {
+		
+    Scanner kb = new Scanner(System.in);
     String fileName;
 
     // Open input file:
-
-    if (args.length > 0)
-      fileName = args[0];
-    else
-    {
-      System.out.print("\nEnter input file name: ");
-      fileName = keyboard.nextLine().trim();
+    if (args.length >= 1) {
+    	fileName = args[0];
+    }else{
+    	System.out.print("Enter input file name: ");
+    	fileName = kb.nextLine().trim();
     }
 
-    BufferedReader inputFile =
-                 new BufferedReader(new FileReader(fileName), 1024);
+    BufferedReader inputFile = new BufferedReader(new FileReader(fileName), 1024);
 
     // Create output file:
-
-    if (args.length > 1)
-      fileName = args[1];
-    else
-    {
-      System.out.print("\nEnter output file name: ");
-      fileName = keyboard.nextLine().trim();
+    if (args.length >= 2) {
+    	fileName = args[1];
+    }else{
+    	System.out.print("Enter output file name: ");
+    	fileName = kb.nextLine().trim();
     }
 
     PrintWriter outputFile = new PrintWriter(new FileWriter(fileName));
 
     // Create index:
-
-    DocumentIndex index = new DocumentIndex();
-
+    DocumentIndex docIndex = new DocumentIndex();
     String line;
-    int lineNum = 0;
+    int num = 0;
     while ((line = inputFile.readLine()) != null)
     {
-      lineNum++;
-      index.addAllWords(line, lineNum);
+    	num++;
+    	docIndex.addAllWords(line, num);
     }
 
     // Save index:
-
-    /*for(Map.Entry<String,Integer> entry : entryList.entrySet()) {
-    	  String key = entry.getKey();
-    	  Integer value = entry.getValue();
-
-    	  System.out.println(key + " => " + value);
+    for (IndexEntry entry : docIndex) {
+        outputFile.println(entry);
     }
-    
-    
-    for (IndexEntry entry : DocumentIndex.entryList)
-      outputFile.println(entry);
-*/
-    
-    // Finish:
-
+ 
+    //close
     inputFile.close();
     outputFile.close();
-
-    keyboard.close();
-    System.out.println("Done.");
+    kb.close();
   }
 }

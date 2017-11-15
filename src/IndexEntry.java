@@ -13,7 +13,7 @@ public class IndexEntry {
 	public void add(int num) {
 		 if(!numList.contains(num)) {
 			 numList.add(num);
-		 }
+		 } 
 	}
 	
 	public String getWord() {
