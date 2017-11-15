@@ -35,6 +35,7 @@ public class IndexMaker{
 
     // Create index:
     DocumentIndex docIndex = new DocumentIndex();
+    
     String line;
     int num = 0;
     while ((line = inputFile.readLine()) != null)
@@ -44,9 +45,9 @@ public class IndexMaker{
     }
 
     // Save index:
-    for (IndexEntry entry : docIndex) {
-        outputFile.println(entry);
-    }
+    
+    
+
  
     //close
     inputFile.close();

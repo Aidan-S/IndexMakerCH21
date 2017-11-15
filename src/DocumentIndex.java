@@ -38,4 +38,8 @@ public class DocumentIndex extends TreeSet<IndexEntry>{
 		
 	}
 	
+	public String toString() {
+		for()
+	}
+	
 }
