@@ -46,7 +46,7 @@ public class IndexMaker{
 
     // Save index:
     
-    
+    outputFile.print(docIndex.toString());
 
  
     //close

@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -39,7 +40,13 @@ public class DocumentIndex extends TreeSet<IndexEntry>{
 	}
 	
 	public String toString() {
-		for()
+		String words = null;
+		for(Map.Entry<String,IndexEntry> entry : entryList.entrySet()) {
+			words = " ";  
+			IndexEntry value = entry.getValue();
+			words += value.toString() + "\n";  
+		}
+		return words;
 	}
 	
 }

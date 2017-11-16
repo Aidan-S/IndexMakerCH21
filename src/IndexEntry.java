@@ -21,10 +21,15 @@ public class IndexEntry {
 	}
 	
 	public String toString() {
-		String line = numList.toString();
-		line = line.replace("{", "");
-		line = line.replace("}", "");
-		return word + " " + line;
+		String line = "";
+		
+		for (Integer num : numList) {
+			   line += ("" + num)+ ", ";
+			}
+		
+		int len = (word + " " + line).length();
+		
+		return (word + " " + line).substring(0, len - 1);
 	}
 	
 	
