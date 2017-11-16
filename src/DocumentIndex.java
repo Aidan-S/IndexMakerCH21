@@ -2,23 +2,20 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class DocumentIndex extends TreeSet<IndexEntry>{
+public class DocumentIndex extends TreeMap<String, IndexEntry>{
 
-	private TreeMap<String, IndexEntry> entryList;
-	
-	
 	public DocumentIndex() {
-		entryList = new TreeMap<String, IndexEntry>(); 
+		super();
 	}
 
 	public void addWord(String word, int num) {
 		IndexEntry temp;
-		if(entryList.containsKey(word)) {	
-			entryList.get(word).add(num);
+		if(this.containsKey(word)) {	
+			this.get(word).add(num);
 		} else {
 			temp = new IndexEntry(word);
 			temp.add(num);
-			entryList.put(word, temp);
+			this.put(word, temp);
 		}
 	}
 	
@@ -31,18 +28,19 @@ public class DocumentIndex extends TreeSet<IndexEntry>{
 		str.replace(".", " ");
 		str.replace("  ", " ");
 		
+		
 		String[] words = str.split("\\W+");
 		
-		 for ( String word : words) {
+		for ( String word : words) {
 			 addWord(word, num);
 		  }
 		
 	}
 	
 	public String toString() {
-		String words = null;
-		for(Map.Entry<String,IndexEntry> entry : entryList.entrySet()) {
-			words = " ";  
+		String words = "";
+		for(Map.Entry<String,IndexEntry> entry : this.entrySet()) {
+			  
 			IndexEntry value = entry.getValue();
 			words += value.toString() + "\n";  
 		}

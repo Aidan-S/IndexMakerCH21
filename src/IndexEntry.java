@@ -1,6 +1,6 @@
 import java.util.TreeSet;
 
-public class IndexEntry {
+public class IndexEntry implements Comparable{
 	
 	private String word;
 	private TreeSet<Integer> numList;
@@ -25,13 +25,15 @@ public class IndexEntry {
 		
 		for (Integer num : numList) {
 			   line += ("" + num)+ ", ";
-			}
+		}
 		
 		int len = (word + " " + line).length();
 		
-		return (word + " " + line).substring(0, len - 1);
+		return (word + " " + line).substring(0, len - 2);
 	}
 	
-	
-	
+	@Override
+	public int compareTo(Object entry) {
+		return word.compareTo(((IndexEntry)entry).getWord());
+	}
 }

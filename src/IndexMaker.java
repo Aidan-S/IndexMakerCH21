@@ -38,14 +38,12 @@ public class IndexMaker{
     
     String line;
     int num = 0;
-    while ((line = inputFile.readLine()) != null)
-    {
-    	num++;
+    while ((line = inputFile.readLine()) != null){
     	docIndex.addAllWords(line, num);
+    	num++;
     }
 
     // Save index:
-    
     outputFile.print(docIndex.toString());
 
  
