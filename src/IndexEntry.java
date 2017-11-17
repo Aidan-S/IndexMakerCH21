@@ -24,7 +24,7 @@ public class IndexEntry implements Comparable{
 		String line = "";
 		
 		for (Integer num : numList) {
-			   line += ("" + num)+ ", ";
+			   line += ("" + (num + 1))+ ", ";
 		}
 		
 		int len = (word + " " + line).length();

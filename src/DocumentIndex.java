@@ -8,8 +8,9 @@ public class DocumentIndex extends TreeMap<String, IndexEntry>{
 		super();
 	}
 
-	public void addWord(String word, int num) {
+	public void addWord(String given, int num) {
 		IndexEntry temp;
+		String word = given.toUpperCase();
 		if(this.containsKey(word)) {	
 			this.get(word).add(num);
 		} else {
@@ -20,6 +21,7 @@ public class DocumentIndex extends TreeMap<String, IndexEntry>{
 	}
 	
 	public void addAllWords(String str, int num) {
+		str.toUpperCase();
 		str.replace("{", " ");
 		str.replace("}", " ");
 		str.replace(";", " ");
