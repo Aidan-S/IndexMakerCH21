@@ -11,12 +11,14 @@ public class DocumentIndex extends TreeMap<String, IndexEntry>{
 	public void addWord(String given, int num) {
 		IndexEntry temp;
 		String word = given.toUpperCase();
-		if(this.containsKey(word)) {	
-			this.get(word).add(num);
-		} else {
-			temp = new IndexEntry(word);
-			temp.add(num);
-			this.put(word, temp);
+		if(!word.equals("")) {
+			if(this.containsKey(word)) {	
+				this.get(word).add(num);
+			} else {
+				temp = new IndexEntry(word);
+				temp.add(num);
+				this.put(word, temp);
+			}
 		}
 	}
 	
@@ -42,9 +44,8 @@ public class DocumentIndex extends TreeMap<String, IndexEntry>{
 	public String toString() {
 		String words = "";
 		for(Map.Entry<String,IndexEntry> entry : this.entrySet()) {
-			  
-			IndexEntry value = entry.getValue();
-			words += value.toString() + "\n";  
+				IndexEntry value = entry.getValue();
+				words += value.toString() + "\n";	  
 		}
 		return words;
 	}
