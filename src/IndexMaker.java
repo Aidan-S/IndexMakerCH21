@@ -13,7 +13,7 @@ public class IndexMaker{
     Scanner kb = new Scanner(System.in);
     String fileName;
 
-    // Open input file:
+    //make a reader
     if (args.length >= 1) {
     	fileName = args[0];
     }else{
@@ -23,7 +23,7 @@ public class IndexMaker{
 
     BufferedReader inputFile = new BufferedReader(new FileReader(fileName), 1024);
 
-    // Create output file:
+    //make a printer
     if (args.length >= 2) {
     	fileName = args[1];
     }else{
@@ -33,7 +33,7 @@ public class IndexMaker{
 
     PrintWriter outputFile = new PrintWriter(new FileWriter(fileName));
 
-    // Create index:
+    // Make a document index and fill it up
     DocumentIndex docIndex = new DocumentIndex();
     
     String line;
@@ -43,11 +43,11 @@ public class IndexMaker{
     	num++;
     }
 
-    // Save index:
+    // Print stuff
     outputFile.print(docIndex.toString());
 
  
-    //close
+    //close all of my scanner things
     inputFile.close();
     outputFile.close();
     kb.close();
