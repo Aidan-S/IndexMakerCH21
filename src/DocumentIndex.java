@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
+//Aidan Scannell
 public class DocumentIndex extends TreeMap<String, IndexEntry>{
 	
 	/**
